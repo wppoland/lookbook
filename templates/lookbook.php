@@ -23,9 +23,6 @@ defined('ABSPATH') || exit;
 
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Variables are local to the template include scope, not true globals.
 
-$markerStyle    = in_array(($settings['marker_style'] ?? 'dot'), ['dot', 'plus', 'numbered'], true)
-    ? (string) $settings['marker_style']
-    : 'dot';
 $showPrice      = ! empty($settings['show_price']);
 $showAddToCart  = ! empty($settings['show_add_to_cart']);
 $addToCartLabel = trim((string) ($settings['add_to_cart_text'] ?? ''));
@@ -49,7 +46,7 @@ if (! is_string($image) || $image === '') {
 $baseId = 'lookbook-' . $lookbookId;
 ?>
 <div
-    class="lookbook lookbook--marker-<?php echo esc_attr($markerStyle); ?>"
+    class="lookbook"
     id="<?php echo esc_attr($baseId); ?>"
     data-lookbook
 >

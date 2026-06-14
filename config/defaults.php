@@ -20,9 +20,6 @@ return [
     // Master switch. When off, lookbooks render nothing and no assets load.
     'enabled' => true,
 
-    // Hotspot marker style: 'dot', 'plus' or 'numbered'.
-    'marker_style' => 'dot',
-
     // Product card contents.
     'show_price'       => true,
     'show_add_to_cart' => true,

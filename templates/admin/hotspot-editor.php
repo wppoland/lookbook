@@ -1,13 +1,12 @@
 <?php
 /**
  * Hotspot editor meta box. A simple repeater: each row is an x%, a y% and a
- * product id. A live preview shows where each hotspot lands on the lookbook
- * image. Drag-to-place is a Pro feature; this MVP keeps the inputs explicit.
+ * product id. The featured image is the canvas; positions are entered as
+ * percentages from the top-left.
  *
  * @package Lookbook
  *
  * @var array<int, array{x: float, y: float, product_id: int}> $hotspots Stored hotspots.
- * @var string                                                 $imageUrl Featured-image URL, or '' if none set.
  */
 
 declare(strict_types=1);
@@ -21,26 +20,8 @@ defined('ABSPATH') || exit;
         <?php esc_html_e('Set the lookbook image using the Featured image box, then add a hotspot for each product. Position each one with X and Y as a percentage from the top-left of the image (0–100), and enter the product ID to link.', 'lookbook'); ?>
     </p>
 
-    <div class="lookbook-editor__layout">
-        <div class="lookbook-editor__preview-wrap">
-            <?php if ($imageUrl !== '') : ?>
-                <div class="lookbook-editor__preview" data-lookbook-preview>
-                    <img
-                        src="<?php echo esc_url($imageUrl); ?>"
-                        alt=""
-                        class="lookbook-editor__preview-img"
-                    />
-                    <?php // Marker pins are injected here by the editor script. ?>
-                </div>
-            <?php else : ?>
-                <p class="lookbook-editor__no-image">
-                    <?php esc_html_e('Set a Featured image to preview hotspot positions.', 'lookbook'); ?>
-                </p>
-            <?php endif; ?>
-        </div>
-
-        <div class="lookbook-editor__rows-wrap">
-            <table class="widefat lookbook-editor__table" data-lookbook-rows>
+    <div class="lookbook-editor__rows-wrap">
+        <table class="widefat lookbook-editor__table" data-lookbook-rows>
                 <thead>
                     <tr>
                         <th scope="col" class="lookbook-editor__col-num"><?php esc_html_e('#', 'lookbook'); ?></th>
@@ -112,7 +93,6 @@ defined('ABSPATH') || exit;
                 <button type="button" class="button lookbook-editor__add" data-lookbook-add>
                     <?php esc_html_e('+ Add hotspot', 'lookbook'); ?>
                 </button>
-            </p>
-        </div>
+        </p>
     </div>
 </div>

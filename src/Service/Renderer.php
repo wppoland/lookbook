@@ -14,7 +14,7 @@ defined('ABSPATH') || exit;
  * Renders a lookbook on the front end: the image plus accessible hotspot markers
  * that reveal a small product card (thumbnail, title, price, add-to-cart link).
  *
- * Used by both the [lookbook] shortcode and the Lookbook block. It is defensive
+ * Powers the [lookbook] shortcode. It is defensive
  * by design — a disabled plugin, a missing lookbook, a lookbook with no image,
  * or hotspots that point at gone products all degrade to rendering nothing (or
  * just the image) rather than producing broken markup. All output is escaped.

@@ -13,9 +13,9 @@ defined('ABSPATH') || exit;
 /**
  * The hotspot editor meta box shown on the Edit Lookbook screen.
  *
- * The MVP editor is deliberately simple: a repeater where each row is an x%, a
- * y% and a product id. The featured image is the canvas; a small live preview
- * shows where each hotspot will land. (Drag-to-place is a Pro feature.)
+ * The editor is deliberately simple: a repeater where each row is an x%, a
+ * y% and a product id. The featured image is the canvas; positions are entered
+ * as percentages from the top-left.
  *
  * All output is escaped; the save handler verifies a nonce and the edit
  * capability, then defers to {@see Repository::sanitizeHotspots()} for shape and
@@ -79,7 +79,6 @@ final class MetaBox implements HasHooks
         wp_localize_script('lookbook-editor', 'lookbookEditor', [
             'i18n' => [
                 'confirmRemove' => __('Remove this hotspot?', 'lookbook'),
-                'rowLabel'      => __('Hotspot', 'lookbook'),
             ],
         ]);
     }
@@ -88,13 +87,8 @@ final class MetaBox implements HasHooks
     {
         wp_nonce_field(self::NONCE_ACTION, self::NONCE_NAME);
 
-        $hotspots  = $this->repository->hotspots($post->ID);
-        $imageId   = (int) get_post_thumbnail_id($post->ID);
-        $imageUrl  = $imageId > 0 ? wp_get_attachment_image_url($imageId, 'large') : '';
-
         $context = [
-            'hotspots' => $hotspots,
-            'imageUrl' => is_string($imageUrl) ? $imageUrl : '',
+            'hotspots' => $this->repository->hotspots($post->ID),
         ];
 
         $file = LOOKBOOK_DIR . 'templates/admin/hotspot-editor.php';

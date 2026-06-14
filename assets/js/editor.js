@@ -1,10 +1,9 @@
 /**
  * Lookbook — hotspot editor (meta box) enhancements.
  *
- * Progressive, dependency-free. Adds/removes repeater rows, renumbers them and
- * keeps the input names contiguous, and paints a live pin on the image preview
- * for each hotspot as the X/Y values change. With JS disabled the rows printed
- * by PHP still save normally — this only improves the authoring experience.
+ * Progressive, dependency-free. Adds/removes repeater rows and keeps the input
+ * names contiguous after each change. With JS disabled the rows printed by PHP
+ * still save normally — this only improves the authoring experience.
  */
 ( function () {
 	'use strict';
@@ -15,10 +14,8 @@
 		return;
 	}
 
-	var i18n =
-		( window.lookbookEditor && window.lookbookEditor.i18n ) || {};
+	var i18n = ( window.lookbookEditor && window.lookbookEditor.i18n ) || {};
 	var body = editor.querySelector( '[data-lookbook-rows-body]' );
-	var preview = editor.querySelector( '[data-lookbook-preview]' );
 
 	function reindex() {
 		var rows = body.querySelectorAll( '[data-lookbook-row]' );
@@ -40,38 +37,6 @@
 					)
 				);
 			} );
-		} );
-		renderPins();
-	}
-
-	function renderPins() {
-		if ( ! preview ) {
-			return;
-		}
-
-		preview.querySelectorAll( '.lookbook-editor__pin' ).forEach( function (
-			pin
-		) {
-			pin.remove();
-		} );
-
-		body.querySelectorAll( '[data-lookbook-row]' ).forEach( function (
-			row,
-			index
-		) {
-			var x = parseFloat( row.querySelector( '[data-lookbook-x]' ).value );
-			var y = parseFloat( row.querySelector( '[data-lookbook-y]' ).value );
-
-			if ( isNaN( x ) || isNaN( y ) ) {
-				return;
-			}
-
-			var pin = document.createElement( 'span' );
-			pin.className = 'lookbook-editor__pin';
-			pin.style.left = Math.max( 0, Math.min( 100, x ) ) + '%';
-			pin.style.top = Math.max( 0, Math.min( 100, y ) ) + '%';
-			pin.textContent = String( index + 1 );
-			preview.appendChild( pin );
 		} );
 	}
 
@@ -130,15 +95,4 @@
 			removeRow( removeBtn.closest( '[data-lookbook-row]' ) );
 		}
 	} );
-
-	editor.addEventListener( 'input', function ( event ) {
-		if (
-			event.target.hasAttribute( 'data-lookbook-x' ) ||
-			event.target.hasAttribute( 'data-lookbook-y' )
-		) {
-			renderPins();
-		}
-	} );
-
-	renderPins();
 } )();

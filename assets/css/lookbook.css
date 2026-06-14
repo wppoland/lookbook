@@ -11,8 +11,6 @@
 .lookbook {
 	--lookbook-marker-size: 28px;
 	--lookbook-accent: #2271b1;
-	--lookbook-marker-bg: rgba( 255, 255, 255, 0.95 );
-	--lookbook-marker-fg: #1e1e1e;
 	--lookbook-card-bg: #fff;
 	--lookbook-card-fg: #1e1e1e;
 	--lookbook-card-muted: #50575e;
@@ -85,50 +83,6 @@
 
 .lookbook__marker-number {
 	pointer-events: none;
-}
-
-/* Marker variants. */
-.lookbook--marker-dot .lookbook__marker {
-	width: 18px;
-	height: 18px;
-	background: var( --lookbook-marker-bg );
-	border-color: var( --lookbook-accent );
-}
-
-.lookbook--marker-dot .lookbook__marker-number {
-	display: none;
-}
-
-.lookbook--marker-dot .lookbook__marker::after {
-	content: "";
-	position: absolute;
-	inset: -6px;
-	border-radius: 50%;
-	border: 2px solid var( --lookbook-accent );
-	opacity: 0.6;
-	animation: lookbook-pulse 2s ease-out infinite;
-}
-
-.lookbook--marker-plus .lookbook__marker-number {
-	display: none;
-}
-
-.lookbook--marker-plus .lookbook__marker::before {
-	content: "+";
-	font-size: 18px;
-	line-height: 1;
-}
-
-@keyframes lookbook-pulse {
-	0% {
-		transform: scale( 1 );
-		opacity: 0.6;
-	}
-
-	100% {
-		transform: scale( 1.8 );
-		opacity: 0;
-	}
 }
 
 /* Product card popover. */
@@ -208,10 +162,6 @@
 	.lookbook__marker:focus-visible {
 		transition: none;
 		transform: none;
-	}
-
-	.lookbook--marker-dot .lookbook__marker::after {
-		animation: none;
 	}
 
 	.lookbook__card:popover-open {

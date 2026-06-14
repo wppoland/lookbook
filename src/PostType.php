@@ -14,7 +14,7 @@ defined('ABSPATH') || exit;
  * A lookbook is admin-only content: it is not publicly queryable on its own
  * (no front-end archive or single template). Merchants create one, set its
  * featured image and pin product hotspots, then embed it anywhere with the
- * [lookbook id="N"] shortcode or the Lookbook block.
+ * [lookbook id="N"] shortcode.
  *
  * The post title is the admin-facing name; the featured image is the canvas;
  * the hotspots live in the `_lookbook_hotspots` meta (see {@see Admin\MetaBox}).

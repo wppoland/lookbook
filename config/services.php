@@ -2,7 +2,8 @@
 /**
  * Service wiring. Returns a closure that registers every service in the
  * container. Lookbook is self-contained: the lookbook post type, the hotspot
- * editor and the front-end renderer all live in this plugin.
+ * editor and the front-end renderer (the [lookbook] shortcode) all live in this
+ * plugin.
  *
  * @package Lookbook
  */
@@ -15,7 +16,6 @@ use Lookbook\Container;
 use Lookbook\Migrator;
 use Lookbook\PostType;
 use Lookbook\Repository;
-use Lookbook\Service\Block;
 use Lookbook\Service\Renderer;
 
 defined('ABSPATH') || exit;
@@ -28,11 +28,8 @@ return static function (Container $c): void {
     // The lookbook custom post type.
     $c->singleton(PostType::class, static fn (): PostType => new PostType());
 
-    // Front-end renderer (shared by the shortcode and the block).
+    // Front-end renderer (powers the [lookbook] shortcode).
     $c->singleton(Renderer::class, static fn (Container $c): Renderer => new Renderer($c->get(Repository::class)));
-
-    // Lookbook block — a thin wrapper over the renderer.
-    $c->singleton(Block::class, static fn (Container $c): Block => new Block($c->get(Renderer::class)));
 
     // Admin (only needed in wp-admin context).
     if (is_admin()) {
