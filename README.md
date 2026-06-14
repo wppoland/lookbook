@@ -1,38 +1,35 @@
 # Lookbook - Shoppable Image Gallery for WooCommerce
 
-Turn any image into a shoppable lookbook: pin WooCommerce products as hotspots
-that reveal a small product card (thumbnail, title, price, add-to-cart link).
+Lookbook turns a single image into a shoppable scene. Pin your WooCommerce products to a photo as
+hotspots; when a shopper activates one, a small product card appears with the thumbnail, title,
+live price and an add-to-cart link — so they can buy straight from the image.
 
-Self-contained WooCommerce plugin — no shared kit dependency.
+## Features
 
-## What it does
+- Pin any number of products as hotspots on one image, positioned by X/Y percentage.
+- Simple hotspot editor with a live image preview.
+- Accessible hotspot markers: real buttons, keyboard operable, with screen-reader labels.
+- Product card popover with thumbnail, title, live price and an add-to-cart link.
+- Three marker styles: pulsing dot, plus sign, or numbered.
+- Embed with the `[lookbook id="N"]` shortcode or the Lookbook block.
+- No layout shift, no jQuery; assets load only where a lookbook appears.
 
-- A **lookbook** is one image plus hotspots. Each hotspot is positioned by an
-  X/Y percentage and linked to a WooCommerce product.
-- The front end renders the image with accessible hotspot markers; activating a
-  marker opens a product-card popover.
-- Embed with the `[lookbook id="N"]` shortcode or the **Lookbook** block.
+## Installation
 
-## Architecture
+1. Upload the plugin to `/wp-content/plugins/lookbook`, or install it via Plugins → Add New.
+2. Activate it. WooCommerce must be installed and active.
+3. Create a lookbook under Lookbooks → Add New: set the Featured image, then add product hotspots.
+4. Embed it with `[lookbook id="123"]` or the Lookbook block.
 
-- `lookbook.php` — bootstrap. Boots on `init:0` and fires `do_action('lookbook/booted', …)`
-  from `Plugin::boot()`. Never calls translation functions at `plugins_loaded` scope.
-- `src/Plugin.php` + `src/Container.php` — minimal DI container (lazy singletons, `has()`).
-- `src/PostType.php` — the `lookbook` custom post type (admin-only, title + thumbnail).
-- `src/Repository.php` — single source of truth for hotspot shape + sanitisation.
-- `src/Admin/MetaBox.php` — the hotspot repeater editor with a live preview.
-- `src/Admin/Settings.php` — **WooCommerce → Lookbook** settings page.
-- `src/Service/Renderer.php` — front-end renderer shared by the shortcode and block.
-- `src/Service/Block.php` — the `wppoland/lookbook` dynamic block.
-- `templates/` — front-end + admin templates. `blocks/lookbook/` — block metadata + editor script.
+## Frequently Asked Questions
 
-## Development
+**Does it require WooCommerce?**
+Yes. Lookbook only runs when WooCommerce is active, and hotspots link to WooCommerce products.
 
-```bash
-composer install
-composer cs        # PHPCS (WordPress security sniffs)
-composer analyse   # PHPStan level 6
-```
+**What happens if a pinned product is deleted?**
+That hotspot is simply skipped. Lookbook never renders a marker for a product that is gone or
+unpublished.
 
-The MVP hotspot editor is intentionally simple (a repeater of X%, Y%, product
-ID). Drag-to-place is a Lookbook Pro feature.
+Built by WPPoland — https://plogins.com
+
+License: GPL-2.0-or-later
