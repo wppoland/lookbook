@@ -1,0 +1,23 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "wppoland/lookbook",
+    "version": "0.1.0",
+    "title": "Lookbook",
+    "category": "woocommerce",
+    "icon": "format-image",
+    "description": "Embed a shoppable lookbook: an image with product hotspots.",
+    "keywords": ["lookbook", "shoppable", "hotspot", "woocommerce", "products"],
+    "textdomain": "lookbook",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"]
+    },
+    "attributes": {
+        "lookbookId": {
+            "type": "integer",
+            "default": 0
+        }
+    },
+    "editorScript": "lookbook-block-editor"
+}

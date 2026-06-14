@@ -1,0 +1,185 @@
+/**
+ * Lookbook — admin styles for the settings screen and the hotspot editor meta
+ * box. Card layout, inline-help popovers, a live hotspot preview and a
+ * dark-mode-aware palette that follows the OS preference.
+ */
+
+.lookbook-admin {
+	--lookbook-card-bg: #fff;
+	--lookbook-card-fg: #1e1e1e;
+	--lookbook-card-border: #dcdcde;
+	--lookbook-accent: #2271b1;
+	max-width: 820px;
+}
+
+.lookbook-intro {
+	margin: 12px 0 20px;
+	color: #50575e;
+	font-size: 14px;
+	max-width: 70ch;
+}
+
+.lookbook-intro code {
+	font-size: 13px;
+}
+
+.lookbook-card {
+	background: var( --lookbook-card-bg );
+	color: var( --lookbook-card-fg );
+	border: 1px solid var( --lookbook-card-border );
+	border-radius: 8px;
+	padding: 4px 20px 12px;
+	margin: 0 0 20px;
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.04 );
+}
+
+.lookbook-card h2 {
+	font-size: 15px;
+	margin: 16px 0 4px;
+}
+
+/* Inline help affordance (shared by settings + editor). */
+.lookbook-help {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 18px;
+	height: 18px;
+	margin-left: 6px;
+	padding: 0;
+	border: 1px solid var( --lookbook-accent, #2271b1 );
+	border-radius: 50%;
+	background: transparent;
+	color: var( --lookbook-accent, #2271b1 );
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 1;
+	cursor: help;
+	vertical-align: middle;
+}
+
+.lookbook-help:hover,
+.lookbook-help:focus-visible {
+	background: var( --lookbook-accent, #2271b1 );
+	color: #fff;
+}
+
+.lookbook-help:focus-visible {
+	outline: 2px solid var( --lookbook-accent, #2271b1 );
+	outline-offset: 2px;
+}
+
+.lookbook-tip {
+	max-width: 320px;
+	margin: 0;
+	padding: 10px 12px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fff;
+	color: #1e1e1e;
+	font-size: 13px;
+	line-height: 1.5;
+	box-shadow: 0 4px 16px rgba( 0, 0, 0, 0.16 );
+}
+
+.lookbook-tip[hidden] {
+	display: none;
+}
+
+/* Hotspot editor meta box. */
+.lookbook-editor__intro {
+	color: #50575e;
+	max-width: 70ch;
+}
+
+.lookbook-editor__layout {
+	display: grid;
+	grid-template-columns: minmax( 220px, 1fr ) 1.4fr;
+	gap: 20px;
+	align-items: start;
+}
+
+@media ( max-width: 782px ) {
+	.lookbook-editor__layout {
+		grid-template-columns: 1fr;
+	}
+}
+
+.lookbook-editor__preview {
+	position: relative;
+	display: inline-block;
+	max-width: 100%;
+	line-height: 0;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.lookbook-editor__preview-img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.lookbook-editor__pin {
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	margin: -11px 0 0 -11px;
+	border-radius: 50%;
+	background: #2271b1;
+	border: 2px solid #fff;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 18px;
+	text-align: center;
+	box-shadow: 0 2px 6px rgba( 0, 0, 0, 0.4 );
+	pointer-events: none;
+}
+
+.lookbook-editor__no-image {
+	padding: 24px;
+	border: 1px dashed #c3c4c7;
+	border-radius: 8px;
+	color: #646970;
+	text-align: center;
+	background: #f6f7f7;
+}
+
+.lookbook-editor__table {
+	margin-bottom: 12px;
+}
+
+.lookbook-editor__col-num {
+	width: 36px;
+	text-align: center;
+}
+
+.lookbook-editor__col-actions {
+	width: 80px;
+	text-align: right;
+}
+
+.lookbook-editor__remove {
+	color: #b32d2e;
+}
+
+.lookbook-editor__remove:hover {
+	color: #8a2424;
+}
+
+@media ( prefers-color-scheme: dark ) {
+	.lookbook-admin {
+		--lookbook-card-bg: #1e1e1e;
+		--lookbook-card-fg: #f0f0f1;
+		--lookbook-card-border: #3c434a;
+		--lookbook-accent: #72aee6;
+	}
+
+	.lookbook-tip {
+		background: #2c3338;
+		color: #f0f0f1;
+		border-color: #3c434a;
+	}
+}

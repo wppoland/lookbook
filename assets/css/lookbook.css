@@ -1,0 +1,230 @@
+/**
+ * Lookbook — front-end styles.
+ *
+ * The image is the canvas; markers are absolutely positioned by percentage so
+ * the layout is fully fluid. Markers and cards use modern primitives (custom
+ * properties, the Popover API) with motion guarded by prefers-reduced-motion and
+ * a dark-mode-aware card palette. The image carries its intrinsic dimensions so
+ * there is no Cumulative Layout Shift.
+ */
+
+.lookbook {
+	--lookbook-marker-size: 28px;
+	--lookbook-accent: #2271b1;
+	--lookbook-marker-bg: rgba( 255, 255, 255, 0.95 );
+	--lookbook-marker-fg: #1e1e1e;
+	--lookbook-card-bg: #fff;
+	--lookbook-card-fg: #1e1e1e;
+	--lookbook-card-muted: #50575e;
+	--lookbook-card-border: rgba( 0, 0, 0, 0.08 );
+	--lookbook-radius: 12px;
+	--lookbook-shadow: 0 8px 30px rgba( 0, 0, 0, 0.18 );
+
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.lookbook__stage {
+	position: relative;
+	display: inline-block;
+	max-width: 100%;
+	line-height: 0;
+}
+
+.lookbook__image {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius: var( --lookbook-radius );
+}
+
+.lookbook__hotspots {
+	position: absolute;
+	inset: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lookbook__hotspot {
+	position: absolute;
+	margin: 0;
+	transform: translate( -50%, -50% );
+}
+
+/* Marker button. */
+.lookbook__marker {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: var( --lookbook-marker-size );
+	height: var( --lookbook-marker-size );
+	padding: 0;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	background: var( --lookbook-accent );
+	color: #fff;
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1;
+	cursor: pointer;
+	box-shadow: 0 2px 8px rgba( 0, 0, 0, 0.35 );
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lookbook__marker:hover,
+.lookbook__marker:focus-visible {
+	transform: scale( 1.15 );
+	box-shadow: 0 4px 14px rgba( 0, 0, 0, 0.45 );
+}
+
+.lookbook__marker:focus-visible {
+	outline: 3px solid #fff;
+	outline-offset: 2px;
+}
+
+.lookbook__marker-number {
+	pointer-events: none;
+}
+
+/* Marker variants. */
+.lookbook--marker-dot .lookbook__marker {
+	width: 18px;
+	height: 18px;
+	background: var( --lookbook-marker-bg );
+	border-color: var( --lookbook-accent );
+}
+
+.lookbook--marker-dot .lookbook__marker-number {
+	display: none;
+}
+
+.lookbook--marker-dot .lookbook__marker::after {
+	content: "";
+	position: absolute;
+	inset: -6px;
+	border-radius: 50%;
+	border: 2px solid var( --lookbook-accent );
+	opacity: 0.6;
+	animation: lookbook-pulse 2s ease-out infinite;
+}
+
+.lookbook--marker-plus .lookbook__marker-number {
+	display: none;
+}
+
+.lookbook--marker-plus .lookbook__marker::before {
+	content: "+";
+	font-size: 18px;
+	line-height: 1;
+}
+
+@keyframes lookbook-pulse {
+	0% {
+		transform: scale( 1 );
+		opacity: 0.6;
+	}
+
+	100% {
+		transform: scale( 1.8 );
+		opacity: 0;
+	}
+}
+
+/* Product card popover. */
+.lookbook__card {
+	width: 240px;
+	max-width: calc( 100vw - 32px );
+	margin: 0;
+	padding: 12px;
+	border: 1px solid var( --lookbook-card-border );
+	border-radius: var( --lookbook-radius );
+	background: var( --lookbook-card-bg );
+	color: var( --lookbook-card-fg );
+	box-shadow: var( --lookbook-shadow );
+	/* Popover positioning is refined by the script; this is the closed state. */
+	inset: auto;
+}
+
+.lookbook__card:popover-open {
+	animation: lookbook-card-in 0.18s ease;
+}
+
+@keyframes lookbook-card-in {
+	from {
+		opacity: 0;
+		transform: translateY( 6px );
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY( 0 );
+	}
+}
+
+.lookbook__card-link {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+
+.lookbook__card-thumb {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	margin-bottom: 8px;
+}
+
+.lookbook__card-title {
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.35;
+}
+
+.lookbook__card-price {
+	display: block;
+	margin: 6px 0 10px;
+	font-size: 14px;
+	color: var( --lookbook-card-muted );
+}
+
+.lookbook__card-price del {
+	opacity: 0.7;
+	margin-right: 4px;
+}
+
+.lookbook__card-cta.button {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+@media ( prefers-reduced-motion: reduce ) {
+	.lookbook__marker,
+	.lookbook__marker:hover,
+	.lookbook__marker:focus-visible {
+		transition: none;
+		transform: none;
+	}
+
+	.lookbook--marker-dot .lookbook__marker::after {
+		animation: none;
+	}
+
+	.lookbook__card:popover-open {
+		animation: none;
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+	.lookbook {
+		--lookbook-card-bg: #1f1f23;
+		--lookbook-card-fg: #f0f0f1;
+		--lookbook-card-muted: #b5b9c0;
+		--lookbook-card-border: rgba( 255, 255, 255, 0.12 );
+		--lookbook-accent: #72aee6;
+	}
+}
