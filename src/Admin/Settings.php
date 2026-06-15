@@ -166,6 +166,19 @@ final class Settings implements HasHooks
                     </table>
                 </div>
 
+                <?php
+                /**
+                 * Fires inside the settings form after the core setting cards,
+                 * before the submit button. Add-ons (e.g. Lookbook Pro) hook
+                 * this to render their own cards within the same form so their
+                 * fields are submitted under the shared option.
+                 *
+                 * @param array<string, mixed> $settings Resolved settings (defaults merged over stored).
+                 * @param string               $option   The shared option name.
+                 */
+                do_action('lookbook_admin_settings_after_cards', $settings, self::OPTION);
+                ?>
+
                 <?php submit_button(); ?>
             </form>
         </div>
@@ -213,7 +226,7 @@ final class Settings implements HasHooks
             $raw = [];
         }
 
-        return [
+        $sanitized = [
             'enabled'          => ! empty($raw['enabled']),
             'show_price'       => ! empty($raw['show_price']),
             'show_add_to_cart' => ! empty($raw['show_add_to_cart']),
@@ -221,6 +234,19 @@ final class Settings implements HasHooks
                 ? sanitize_text_field((string) $raw['add_to_cart_text'])
                 : '',
         ];
+
+        /**
+         * Filters the sanitised settings before they are stored. Add-ons (e.g.
+         * Lookbook Pro) hook this to sanitise and re-attach their own keys,
+         * which the core sanitiser would otherwise drop on save.
+         *
+         * @param array<string, mixed> $sanitized The core plugin's clean settings.
+         * @param array<string, mixed> $raw       The raw submitted values.
+         * @return array<string, mixed>
+         */
+        $filtered = apply_filters('lookbook_sanitize_settings', $sanitized, $raw);
+
+        return is_array($filtered) ? $filtered : $sanitized;
     }
 
     /**
