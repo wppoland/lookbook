@@ -22,7 +22,6 @@ $lookbook_posts = get_posts([
     'numberposts'    => -1,
     'fields'         => 'ids',
     'no_found_rows'  => true,
-    'suppress_filters' => true,
 ]);
 
 foreach ($lookbook_posts as $lookbook_post_id) {
