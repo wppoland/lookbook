@@ -25,7 +25,7 @@
 	--lookbook-card-bg: #14110f; /* ink — a darkroom mat behind the product */
 	--lookbook-card-fg: #f6f1e8;
 	--lookbook-card-muted: #b7ab97;
-	--lookbook-card-border: rgba( 184, 132, 63, 0.28 );
+	--lookbook-card-border: rgba( 184, 132, 63, 0.72 ); /* brass hairline, WCAG AA 3:1 on ink */
 	--lookbook-radius: 10px;
 	--lookbook-shadow: 0 18px 44px rgba( 20, 17, 15, 0.42 ),
 		0 2px 6px rgba( 20, 17, 15, 0.3 );
@@ -228,7 +228,7 @@
 		--lookbook-card-bg: #1c1814;
 		--lookbook-card-fg: #f6f1e8;
 		--lookbook-card-muted: #c2b6a1;
-		--lookbook-card-border: rgba( 184, 132, 63, 0.36 );
+		--lookbook-card-border: rgba( 184, 132, 63, 0.78 );
 		--lookbook-pin-ring: rgba( 246, 241, 232, 0.85 );
 	}
 }
