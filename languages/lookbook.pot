@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-14T21:59:10+00:00\n"
+"POT-Creation-Date: 2026-06-16T20:23:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lookbook\n"
@@ -73,44 +73,64 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: src/Admin/Settings.php:110
-msgid "Enable Lookbook"
+#: src/Admin/Settings.php:107
+msgid "The master switch for everything Lookbook puts on your storefront."
 msgstr ""
 
-#: src/Admin/Settings.php:121
-msgid "Render lookbooks on the storefront. When off, lookbooks render nothing and no CSS/JS is loaded."
+#: src/Admin/Settings.php:113
+msgid "Show lookbooks on the storefront"
 msgstr ""
 
-#: src/Admin/Settings.php:130
-msgid "Product card"
+#: src/Admin/Settings.php:124
+msgid "Render your lookbooks where the shortcode appears."
+msgstr ""
+
+#: src/Admin/Settings.php:127
+msgid "Turn this off to hide every lookbook at once without deleting anything — the shortcode outputs nothing and Lookbook loads no CSS or JavaScript on the page. Useful while you are still setting up. On by default."
 msgstr ""
 
 #: src/Admin/Settings.php:136
+msgid "Product card"
+msgstr ""
+
+#: src/Admin/Settings.php:138
+msgid "What a shopper sees in the little card that pops up when they tap a hotspot. These apply to every lookbook; the product name and image always show."
+msgstr ""
+
+#: src/Admin/Settings.php:145
 msgid "Price"
 msgstr ""
 
-#: src/Admin/Settings.php:137
-msgid "Show the product price in the hotspot card."
+#: src/Admin/Settings.php:146
+msgid "Show the product price in the pop-up card."
 msgstr ""
 
-#: src/Admin/Settings.php:142
+#: src/Admin/Settings.php:147
+msgid "Lets shoppers see the cost before they leave the image. On by default."
+msgstr ""
+
+#: src/Admin/Settings.php:152
 msgid "Add to cart link"
 msgstr ""
 
-#: src/Admin/Settings.php:143
-msgid "Show an add-to-cart link in the hotspot card."
+#: src/Admin/Settings.php:153
+msgid "Show an add-to-cart link in the pop-up card."
 msgstr ""
 
-#: src/Admin/Settings.php:149
+#: src/Admin/Settings.php:154
+msgid "Lets shoppers buy straight from the image without opening the product page. On by default."
+msgstr ""
+
+#: src/Admin/Settings.php:160
 msgid "Add to cart label"
 msgstr ""
 
-#: src/Admin/Settings.php:158
+#: src/Admin/Settings.php:169
 msgid "e.g. Add to cart"
 msgstr ""
 
-#: src/Admin/Settings.php:161
-msgid "The text used for the add-to-cart link inside the card. Leave blank to use the WooCommerce default for each product."
+#: src/Admin/Settings.php:172
+msgid "Overrides the wording on the add-to-cart link for every product — for example “Add to cart”, “Shop the look”, or “Add to bag”. Leave blank to keep each product’s own WooCommerce button text. Only used when the add-to-cart link above is on."
 msgstr ""
 
 #: src/PostType.php:34
