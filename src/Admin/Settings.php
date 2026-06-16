@@ -103,11 +103,14 @@ final class Settings implements HasHooks
 
                 <div class="lookbook-card">
                     <h2><?php esc_html_e('General', 'lookbook'); ?></h2>
+                    <p class="lookbook-card__desc">
+                        <?php esc_html_e('The master switch for everything Lookbook puts on your storefront.', 'lookbook'); ?>
+                    </p>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <?php esc_html_e('Enable Lookbook', 'lookbook'); ?>
+                                    <?php esc_html_e('Show lookbooks on the storefront', 'lookbook'); ?>
                                 </th>
                                 <td>
                                     <label for="lookbook_enabled">
@@ -118,8 +121,11 @@ final class Settings implements HasHooks
                                             value="1"
                                             <?php checked((bool) ($settings['enabled'] ?? false), true); ?>
                                         />
-                                        <?php esc_html_e('Render lookbooks on the storefront. When off, lookbooks render nothing and no CSS/JS is loaded.', 'lookbook'); ?>
+                                        <?php esc_html_e('Render your lookbooks where the shortcode appears.', 'lookbook'); ?>
                                     </label>
+                                    <p class="description">
+                                        <?php esc_html_e('Turn this off to hide every lookbook at once without deleting anything — the shortcode outputs nothing and Lookbook loads no CSS or JavaScript on the page. Useful while you are still setting up. On by default.', 'lookbook'); ?>
+                                    </p>
                                 </td>
                             </tr>
                         </tbody>
@@ -128,19 +134,24 @@ final class Settings implements HasHooks
 
                 <div class="lookbook-card">
                     <h2><?php esc_html_e('Product card', 'lookbook'); ?></h2>
+                    <p class="lookbook-card__desc">
+                        <?php esc_html_e('What a shopper sees in the little card that pops up when they tap a hotspot. These apply to every lookbook; the product name and image always show.', 'lookbook'); ?>
+                    </p>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <?php
                             $this->checkboxRow(
                                 'show_price',
                                 __('Price', 'lookbook'),
-                                __('Show the product price in the hotspot card.', 'lookbook'),
+                                __('Show the product price in the pop-up card.', 'lookbook'),
+                                __('Lets shoppers see the cost before they leave the image. On by default.', 'lookbook'),
                                 $settings,
                             );
                             $this->checkboxRow(
                                 'show_add_to_cart',
                                 __('Add to cart link', 'lookbook'),
-                                __('Show an add-to-cart link in the hotspot card.', 'lookbook'),
+                                __('Show an add-to-cart link in the pop-up card.', 'lookbook'),
+                                __('Lets shoppers buy straight from the image without opening the product page. On by default.', 'lookbook'),
                                 $settings,
                             );
                             ?>
@@ -158,7 +169,7 @@ final class Settings implements HasHooks
                                         placeholder="<?php esc_attr_e('e.g. Add to cart', 'lookbook'); ?>"
                                     />
                                     <p class="description">
-                                        <?php esc_html_e('The text used for the add-to-cart link inside the card. Leave blank to use the WooCommerce default for each product.', 'lookbook'); ?>
+                                        <?php esc_html_e('Overrides the wording on the add-to-cart link for every product — for example “Add to cart”, “Shop the look”, or “Add to bag”. Leave blank to keep each product’s own WooCommerce button text. Only used when the add-to-cart link above is on.', 'lookbook'); ?>
                                     </p>
                                 </td>
                             </tr>
@@ -188,9 +199,12 @@ final class Settings implements HasHooks
     /**
      * Render a single checkbox row in the form-table.
      *
+     * @param string               $label  The control label (the th).
+     * @param string               $help   The inline label next to the checkbox.
+     * @param string               $detail The description line below: name the effect.
      * @param array<string, mixed> $settings
      */
-    private function checkboxRow(string $key, string $label, string $help, array $settings): void
+    private function checkboxRow(string $key, string $label, string $help, string $detail, array $settings): void
     {
         $id = 'lookbook_' . $key;
         ?>
@@ -209,6 +223,7 @@ final class Settings implements HasHooks
                     />
                     <?php echo esc_html($help); ?>
                 </label>
+                <p class="description"><?php echo esc_html($detail); ?></p>
             </td>
         </tr>
         <?php
