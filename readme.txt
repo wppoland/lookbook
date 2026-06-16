@@ -22,6 +22,9 @@ from the image.
 It is built for stores that sell the look: fashion outfits, room sets, gift
 guides, recipe ingredient shots, anywhere several products live in one picture.
 
+The code is developed in the open. Browse it or report a bug at
+https://github.com/wppoland/lookbook.
+
 = How it works =
 
 1. Create a lookbook under the **Lookbooks** menu and set its image with the
@@ -38,8 +41,8 @@ guides, recipe ingredient shots, anywhere several products live in one picture.
 * Product card popover with thumbnail, title, live price and an add-to-cart link.
 * `[lookbook id="N"]` shortcode.
 * Reads product data live from WooCommerce — prices and stock are always current.
-* Graceful by design: missing image, no hotspots or deleted products render cleanly, never broken.
-* Modern, dark-mode-aware styling that respects prefers-reduced-motion.
+* Degrades cleanly: a lookbook with no image, no hotspots, or only deleted products renders nothing or just the image, never broken markup.
+* CSS adapts to light and dark colour schemes and honours prefers-reduced-motion.
 * No layout shift, no jQuery, assets load only where a lookbook appears.
 * Translation ready (POT included) and clean uninstall.
 * HPOS and cart/checkout blocks compatible.
