@@ -94,6 +94,10 @@ Cumulative Layout Shift.
 2. The hotspot editor on the Edit Lookbook screen.
 3. The Lookbook settings screen under WooCommerce.
 
+== External Services ==
+
+Lookbook does not connect to any external service. It builds the shoppable image from data already on your site: the lookbook post itself (a `lookbook` custom post type), its Featured image from your Media Library, the hotspots stored in the `_lookbook_hotspots` post meta, and the presentation options saved in the `lookbook_settings` option. Product titles, prices, thumbnails and add-to-cart links are read live from your own WooCommerce store. Nothing about your products, shoppers or orders is sent off-site, and the plugin loads no third-party fonts, scripts or analytics.
+
 == Changelog ==
 
 = 0.1.0 =
