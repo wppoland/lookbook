@@ -26,16 +26,34 @@
 			}
 			row.querySelectorAll( 'input' ).forEach( function ( input ) {
 				var name = input.getAttribute( 'name' );
-				if ( ! name ) {
+				if ( name ) {
+					input.setAttribute(
+						'name',
+						name.replace(
+							/lookbook_hotspots\[\d+\]/,
+							'lookbook_hotspots[' + index + ']'
+						)
+					);
+				}
+
+				// Keep the per-row id and its matching <label for> unique so
+				// each input has its own accessible name. Ids are minted by PHP
+				// as lookbook_<field>_<rowIndex> (e.g. lookbook_x_0).
+				var id = input.getAttribute( 'id' );
+				if ( ! id ) {
 					return;
 				}
-				input.setAttribute(
-					'name',
-					name.replace(
-						/lookbook_hotspots\[\d+\]/,
-						'lookbook_hotspots[' + index + ']'
-					)
+				var newId = id.replace( /_\d+$/, '_' + index );
+				if ( newId === id ) {
+					return;
+				}
+				var label = row.querySelector(
+					'label[for="' + id + '"]'
 				);
+				input.setAttribute( 'id', newId );
+				if ( label ) {
+					label.setAttribute( 'for', newId );
+				}
 			} );
 		} );
 	}
