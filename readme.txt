@@ -1,5 +1,5 @@
 === Lookbook - Shoppable Image Gallery for WooCommerce ===
-Contributors: wppoland
+Contributors: motylanogha
 Tags: woocommerce, shoppable, hotspot, lookbook, product image
 Requires at least: 6.5
 Tested up to: 7.0
