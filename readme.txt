@@ -111,6 +111,7 @@ Lookbook does not connect to any external service. It builds the shoppable image
 
 = 0.1.1 =
 * Add `lookbook/card_image_html` filter to allow add-ons to customize product card gallery/thumbnail output.
+* Add `lookbook/scenes` filter so add-ons can append additional shoppable images to a lookbook.
 
 = 0.1.0 =
 * Initial release: shoppable lookbooks with an image, product hotspots positioned by percentage, an accessible product-card popover, and a `[lookbook]` shortcode.
