@@ -3,7 +3,7 @@
  * Plugin Name:       Lookbook - Shoppable Image Gallery for WooCommerce
  * Plugin URI:        https://plogins.com/lookbook/
  * Description:        Create shoppable lookbooks: pin products as hotspots on an image.
- * Version:           0.1.2
+ * Version:           0.1.4
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -24,7 +24,7 @@ namespace Lookbook;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '0.1.2';
+const VERSION     = '0.1.4';
 const PLUGIN_FILE = __FILE__;
 
 define('LOOKBOOK_DIR', plugin_dir_path(__FILE__));

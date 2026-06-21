@@ -27,6 +27,7 @@ $rootId = 'lookbook-' . $lookbookId;
     class="lookbook<?php echo $multi ? ' lookbook--multi' : ''; ?>"
     id="<?php echo esc_attr($rootId); ?>"
     data-lookbook
+    data-lookbook-id="<?php echo esc_attr((string) $lookbookId); ?>"
 >
     <?php if ($multi) : ?>
         <div class="lookbook__nav" role="tablist" aria-label="<?php esc_attr_e('Lookbook images', 'lookbook'); ?>">

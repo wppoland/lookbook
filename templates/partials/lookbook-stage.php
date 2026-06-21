@@ -128,6 +128,11 @@ $active = $sceneIndex === 0;
                             type="button"
                             class="lookbook__marker"
                             popovertarget="<?php echo esc_attr($popoverId); ?>"
+                            data-lookbook-hotspot
+                            data-lookbook-id="<?php echo esc_attr((string) $lookbookId); ?>"
+                            data-scene-index="<?php echo esc_attr((string) $sceneIndex); ?>"
+                            data-hotspot-index="<?php echo esc_attr((string) $index); ?>"
+                            data-product-id="<?php echo esc_attr((string) $hotspot['product_id']); ?>"
                             aria-label="<?php echo esc_attr($markerLabel); ?>"
                             aria-haspopup="dialog"
                         >

@@ -110,7 +110,19 @@ final class Renderer implements HasHooks
             'settings'   => $this->settings(),
         ];
 
-        return $this->renderTemplate('lookbook', $context);
+        $html = $this->renderTemplate('lookbook', $context);
+
+        if ('' !== $html) {
+            /**
+             * Fires after a lookbook renders on the storefront.
+             *
+             * @param int                  $lookbookId Lookbook post ID.
+             * @param array<string, mixed> $context    Template context.
+             */
+            do_action('lookbook/rendered', $lookbookId, $context);
+        }
+
+        return $html;
     }
 
     /**

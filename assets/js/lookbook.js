@@ -96,6 +96,36 @@
 		} );
 	}
 
+	function hotspotDetail( marker ) {
+		return {
+			lookbookId: parseInt( marker.getAttribute( 'data-lookbook-id' ), 10 ) || 0,
+			sceneIndex:
+				parseInt( marker.getAttribute( 'data-scene-index' ), 10 ) || 0,
+			hotspotIndex:
+				parseInt( marker.getAttribute( 'data-hotspot-index' ), 10 ) || 0,
+			productId: parseInt( marker.getAttribute( 'data-product-id' ), 10 ) || 0,
+		};
+	}
+
+	function dispatchHotspotOpened( root, marker ) {
+		if ( typeof CustomEvent !== 'function' ) {
+			return;
+		}
+
+		var detail = hotspotDetail( marker );
+		root.dispatchEvent(
+			new CustomEvent( 'lookbook:hotspot-opened', {
+				bubbles: true,
+				detail: detail,
+			} )
+		);
+		document.dispatchEvent(
+			new CustomEvent( 'lookbook:hotspot-opened', {
+				detail: detail,
+			} )
+		);
+	}
+
 	function activateScene( root, index ) {
 		var tabs = root.querySelectorAll( '[data-lookbook-tab]' );
 		var scenes = root.querySelectorAll( '[data-lookbook-scene]' );
@@ -141,6 +171,7 @@
 				card.addEventListener( 'toggle', function ( event ) {
 					if ( event.newState === 'open' ) {
 						positionCard( marker, card );
+						dispatchHotspotOpened( root, marker );
 					}
 				} );
 				return;
@@ -157,6 +188,7 @@
 					marker.setAttribute( 'aria-expanded', 'true' );
 					card.hidden = false;
 					positionCard( marker, card );
+					dispatchHotspotOpened( root, marker );
 				}
 			} );
 		} );
