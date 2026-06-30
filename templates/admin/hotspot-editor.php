@@ -17,19 +17,19 @@ defined('ABSPATH') || exit;
 ?>
 <div class="lookbook-editor" data-lookbook-editor>
     <p class="lookbook-editor__intro">
-        <?php esc_html_e('Set the lookbook image using the Featured image box, then add a hotspot for each product. Position each one with X and Y as a percentage from the top-left of the image (0–100), and enter the product ID to link.', 'lookbook'); ?>
+        <?php esc_html_e('Set the lookbook image using the Featured image box, then add a hotspot for each product. Position each one with X and Y as a percentage from the top-left of the image (0–100), and enter the product ID to link.', 'plogins-lookbook'); ?>
     </p>
 
     <div class="lookbook-editor__rows-wrap">
         <table class="widefat lookbook-editor__table" data-lookbook-rows>
                 <thead>
                     <tr>
-                        <th scope="col" class="lookbook-editor__col-num"><?php esc_html_e('#', 'lookbook'); ?></th>
-                        <th scope="col"><?php esc_html_e('X %', 'lookbook'); ?></th>
-                        <th scope="col"><?php esc_html_e('Y %', 'lookbook'); ?></th>
-                        <th scope="col"><?php esc_html_e('Product ID', 'lookbook'); ?></th>
+                        <th scope="col" class="lookbook-editor__col-num"><?php esc_html_e('#', 'plogins-lookbook'); ?></th>
+                        <th scope="col"><?php esc_html_e('X %', 'plogins-lookbook'); ?></th>
+                        <th scope="col"><?php esc_html_e('Y %', 'plogins-lookbook'); ?></th>
+                        <th scope="col"><?php esc_html_e('Product ID', 'plogins-lookbook'); ?></th>
                         <?php do_action('lookbook/admin_hotspot_row_header'); ?>
-                        <th scope="col" class="lookbook-editor__col-actions"><span class="screen-reader-text"><?php esc_html_e('Actions', 'lookbook'); ?></span></th>
+                        <th scope="col" class="lookbook-editor__col-actions"><span class="screen-reader-text"><?php esc_html_e('Actions', 'plogins-lookbook'); ?></span></th>
                     </tr>
                 </thead>
                 <tbody data-lookbook-rows-body>
@@ -40,7 +40,7 @@ defined('ABSPATH') || exit;
                         <tr class="lookbook-editor__row" data-lookbook-row>
                             <td class="lookbook-editor__col-num"><span data-lookbook-row-number><?php echo esc_html((string) ($i + 1)); ?></span></td>
                             <td>
-                                <label class="screen-reader-text" for="lookbook_x_<?php echo esc_attr((string) $i); ?>"><?php esc_html_e('X percentage', 'lookbook'); ?></label>
+                                <label class="screen-reader-text" for="lookbook_x_<?php echo esc_attr((string) $i); ?>"><?php esc_html_e('X percentage', 'plogins-lookbook'); ?></label>
                                 <input
                                     type="number"
                                     id="lookbook_x_<?php echo esc_attr((string) $i); ?>"
@@ -54,7 +54,7 @@ defined('ABSPATH') || exit;
                                 />
                             </td>
                             <td>
-                                <label class="screen-reader-text" for="lookbook_y_<?php echo esc_attr((string) $i); ?>"><?php esc_html_e('Y percentage', 'lookbook'); ?></label>
+                                <label class="screen-reader-text" for="lookbook_y_<?php echo esc_attr((string) $i); ?>"><?php esc_html_e('Y percentage', 'plogins-lookbook'); ?></label>
                                 <input
                                     type="number"
                                     id="lookbook_y_<?php echo esc_attr((string) $i); ?>"
@@ -68,7 +68,7 @@ defined('ABSPATH') || exit;
                                 />
                             </td>
                             <td>
-                                <label class="screen-reader-text" for="lookbook_pid_<?php echo esc_attr((string) $i); ?>"><?php esc_html_e('Product ID', 'lookbook'); ?></label>
+                                <label class="screen-reader-text" for="lookbook_pid_<?php echo esc_attr((string) $i); ?>"><?php esc_html_e('Product ID', 'plogins-lookbook'); ?></label>
                                 <input
                                     type="number"
                                     id="lookbook_pid_<?php echo esc_attr((string) $i); ?>"
@@ -83,7 +83,7 @@ defined('ABSPATH') || exit;
                             <?php do_action('lookbook/admin_hotspot_row_cells', $i, $row); ?>
                             <td class="lookbook-editor__col-actions">
                                 <button type="button" class="button-link lookbook-editor__remove" data-lookbook-remove>
-                                    <?php esc_html_e('Remove', 'lookbook'); ?>
+                                    <?php esc_html_e('Remove', 'plogins-lookbook'); ?>
                                 </button>
                             </td>
                         </tr>
@@ -93,7 +93,7 @@ defined('ABSPATH') || exit;
 
             <p>
                 <button type="button" class="button lookbook-editor__add" data-lookbook-add>
-                    <?php esc_html_e('+ Add hotspot', 'lookbook'); ?>
+                    <?php esc_html_e('+ Add hotspot', 'plogins-lookbook'); ?>
                 </button>
         </p>
     </div>

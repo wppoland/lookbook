@@ -1,11 +1,11 @@
-=== Lookbook - Shoppable Image Gallery for WooCommerce ===
+=== Plogins Lookbook for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, shoppable, hotspot, lookbook, product image
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.4
+Stable tag: 0.1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,15 +23,14 @@ It is built for stores that sell the look: fashion outfits, room sets, gift
 guides, recipe ingredient shots, anywhere several products live in one picture.
 
 The code is developed in the open. Browse it or report a bug at
-https://github.com/wppoland/lookbook.
+https://github.com/wppoland/plogins-lookbook.
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/lookbook/docs/
-* **Plugin page** - https://plogins.com/lookbook/
-* **Source code** - https://github.com/wppoland/lookbook
-* **Bug reports and feature requests** - https://github.com/wppoland/lookbook/issues
-* **Discussions and questions** - https://github.com/wppoland/lookbook/discussions
+* **Documentation** - https://plogins.com/plogins-lookbook/docs/
+* **Plugin page** - https://plogins.com/plogins-lookbook/
+* **Source code** - https://github.com/wppoland/plogins-lookbook
+* **Bug reports and feature requests** - https://github.com/wppoland/plogins-lookbook/issues
 
 
 = How it works =
@@ -108,6 +107,9 @@ Cumulative Layout Shift.
 Lookbook does not connect to any external service. It builds the shoppable image from data already on your site: the lookbook post itself (a `lookbook` custom post type), its Featured image from your Media Library, the hotspots stored in the `_lookbook_hotspots` post meta, and the presentation options saved in the `lookbook_settings` option. Product titles, prices, thumbnails and add-to-cart links are read live from your own WooCommerce store. Nothing about your products, shoppers or orders is sent off-site, and the plugin loads no third-party fonts, scripts or analytics.
 
 == Changelog ==
+
+= 0.1.5 =
+* Renamed to Plogins Lookbook for WooCommerce for a more distinctive plugin name.
 
 = 0.1.4 =
 * Fire `lookbook/rendered` after a lookbook template renders and expose `data-lookbook-id` on the root element for add-on analytics.

@@ -31,22 +31,22 @@ final class PostType implements HasHooks
     public function register(): void
     {
         $labels = [
-            'name'                  => _x('Lookbooks', 'post type general name', 'lookbook'),
-            'singular_name'         => _x('Lookbook', 'post type singular name', 'lookbook'),
-            'menu_name'             => _x('Lookbooks', 'admin menu', 'lookbook'),
-            'add_new'               => __('Add New', 'lookbook'),
-            'add_new_item'          => __('Add New Lookbook', 'lookbook'),
-            'edit_item'             => __('Edit Lookbook', 'lookbook'),
-            'new_item'              => __('New Lookbook', 'lookbook'),
-            'view_item'             => __('View Lookbook', 'lookbook'),
-            'search_items'          => __('Search Lookbooks', 'lookbook'),
-            'not_found'             => __('No lookbooks found.', 'lookbook'),
-            'not_found_in_trash'    => __('No lookbooks found in Trash.', 'lookbook'),
-            'all_items'             => __('All Lookbooks', 'lookbook'),
-            'featured_image'        => __('Lookbook image', 'lookbook'),
-            'set_featured_image'    => __('Set lookbook image', 'lookbook'),
-            'remove_featured_image' => __('Remove lookbook image', 'lookbook'),
-            'use_featured_image'    => __('Use as lookbook image', 'lookbook'),
+            'name'                  => _x('Lookbooks', 'post type general name', 'plogins-lookbook'),
+            'singular_name'         => _x('Lookbook', 'post type singular name', 'plogins-lookbook'),
+            'menu_name'             => _x('Lookbooks', 'admin menu', 'plogins-lookbook'),
+            'add_new'               => __('Add New', 'plogins-lookbook'),
+            'add_new_item'          => __('Add New Lookbook', 'plogins-lookbook'),
+            'edit_item'             => __('Edit Lookbook', 'plogins-lookbook'),
+            'new_item'              => __('New Lookbook', 'plogins-lookbook'),
+            'view_item'             => __('View Lookbook', 'plogins-lookbook'),
+            'search_items'          => __('Search Lookbooks', 'plogins-lookbook'),
+            'not_found'             => __('No lookbooks found.', 'plogins-lookbook'),
+            'not_found_in_trash'    => __('No lookbooks found in Trash.', 'plogins-lookbook'),
+            'all_items'             => __('All Lookbooks', 'plogins-lookbook'),
+            'featured_image'        => __('Lookbook image', 'plogins-lookbook'),
+            'set_featured_image'    => __('Set lookbook image', 'plogins-lookbook'),
+            'remove_featured_image' => __('Remove lookbook image', 'plogins-lookbook'),
+            'use_featured_image'    => __('Use as lookbook image', 'plogins-lookbook'),
         ];
 
         register_post_type(self::POST_TYPE, [

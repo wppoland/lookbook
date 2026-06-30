@@ -30,13 +30,13 @@ $rootId = 'lookbook-' . $lookbookId;
     data-lookbook-id="<?php echo esc_attr((string) $lookbookId); ?>"
 >
     <?php if ($multi) : ?>
-        <div class="lookbook__nav" role="tablist" aria-label="<?php esc_attr_e('Lookbook images', 'lookbook'); ?>">
+        <div class="lookbook__nav" role="tablist" aria-label="<?php esc_attr_e('Lookbook images', 'plogins-lookbook'); ?>">
             <?php foreach ($scenes as $sceneIndex => $scene) :
                 $label = trim((string) ($scene['label'] ?? ''));
                 if ($label === '') {
                     $label = sprintf(
                         /* translators: %d: image number */
-                        __('Image %d', 'lookbook'),
+                        __('Image %d', 'plogins-lookbook'),
                         $sceneIndex + 1,
                     );
                 }

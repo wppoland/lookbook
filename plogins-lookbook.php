@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Lookbook - Shoppable Image Gallery for WooCommerce
- * Plugin URI:        https://plogins.com/lookbook/
+ * Plugin Name:       Plogins Lookbook for WooCommerce
+ * Plugin URI:        https://plogins.com/plogins-lookbook/
  * Description:        Create shoppable lookbooks: pin products as hotspots on an image.
- * Version:           0.1.4
+ * Version:           0.1.5
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -11,7 +11,7 @@
  * Author URI:        https://wppoland.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       lookbook
+ * Text Domain:       plogins-lookbook
  * Domain Path:       /languages
  * WC requires at least: 8.0
  *
@@ -24,7 +24,7 @@ namespace Lookbook;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '0.1.4';
+const VERSION     = '0.1.5';
 const PLUGIN_FILE = __FILE__;
 
 define('LOOKBOOK_DIR', plugin_dir_path(__FILE__));
@@ -44,7 +44,7 @@ add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__('Lookbook - Shoppable Image Gallery for WooCommerce requires WooCommerce to be active.', 'lookbook');
+            echo esc_html__('Lookbook - Shoppable Image Gallery for WooCommerce requires WooCommerce to be active.', 'plogins-lookbook');
             echo '</p></div>';
         });
         return;
