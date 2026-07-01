@@ -96,6 +96,11 @@ No. The stylesheet and script load only on pages that actually render a lookbook
 the script is deferred, and the image reserves its space, so there is no
 Cumulative Layout Shift.
 
+
+= Does this plugin work on WordPress Multisite? =
+
+Yes. This plugin is compatible with WordPress Multisite. Network activate it or activate it on individual sites; each site keeps its own settings and data.
+
 == Screenshots ==
 
 1. A shoppable lookbook on the storefront with product hotspots and an open product card.
