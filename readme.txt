@@ -1,4 +1,4 @@
-=== Plogins Lookbook for WooCommerce ===
+=== Plogins Lookbook - Shoppable Lookbook for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, shoppable, hotspot, lookbook, product image
 Requires at least: 6.5

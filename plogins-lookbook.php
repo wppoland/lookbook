@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Plogins Lookbook for WooCommerce
+ * Plugin Name:       Plogins Lookbook - Shoppable Lookbook for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-lookbook/
  * Description:        Create shoppable lookbooks: pin products as hotspots on an image.
  * Version:           0.1.5
